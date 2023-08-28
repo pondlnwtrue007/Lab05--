@@ -1,26 +1,45 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>เป่า ยิ้ง ฉุบ</h1>
+    <button @click="playGame('rock')">ค้อน</button>
+    <button @click="playGame('paper')">กระดาษ</button>
+    <button @click="playGame('scissors')">กรรไกร</button>
+    <img :src="playerImgUrl" alt="Player choice" />
+    <img :src="computerImgUrl" alt="Computer choice" />
+    <p>{{ result }}</p>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import { ref } from 'vue';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+const playerImgUrl = ref('https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/assets/default.png');
+const computerImgUrl = ref('https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/assets/default.png');
+const result = ref('');
+
+const choices = {
+  rock: 'https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/assets/rock.png',
+  paper: 'https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/assets/paper.png',
+  scissors: 'https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/assets/scissors.png',
+};
+
+
+const playGame = (playerChoice) => {
+  playerImgUrl.value = choices[playerChoice];
+  
+  const computerChoice = ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)];
+  computerImgUrl.value = choices[computerChoice];
+  
+  if (playerChoice === computerChoice) {
+    result.value = 'Draw!';
+  } else if (
+    (playerChoice === 'rock' && computerChoice === 'scissors') ||
+    (playerChoice === 'paper' && computerChoice === 'rock') ||
+    (playerChoice === 'scissors' && computerChoice === 'paper')
+  ) {
+    result.value = 'You win!';
+  } else {
+    result.value = 'You lose!';
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
