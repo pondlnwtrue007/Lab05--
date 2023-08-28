@@ -13,14 +13,14 @@
 <script setup>
 import { ref } from 'vue';
 
-const playerImgUrl = ref('https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/assets/default.png');
-const computerImgUrl = ref('https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/assets/default.png');
+const playerImgUrl = ref('https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/src/assets/default.png');
+const computerImgUrl = ref('https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/src/assets/default.png');
 const result = ref('');
 
 const choices = {
-  rock: 'https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/assets/rock.png',
-  paper: 'https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/assets/paper.png',
-  scissors: 'https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/assets/scissors.png',
+  rock: 'https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/src/assets/rock.png',
+  paper: 'https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/src/assets/paper.png',
+  scissors: 'https://pondlnwtrue007.github.io/Lab05-Create-a-rock-paper-scissors-game_344/src/assets/scissors.png',
 };
 
 
